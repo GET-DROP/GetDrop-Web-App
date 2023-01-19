@@ -1,0 +1,40 @@
+ <div id="headbox" class="container">
+        <nav>
+            <div class="header">
+                <div class="nav-wrapper">
+                    <a href="/dashboard" class="brand-logo right">
+                        {{{navUserimage user }}}
+                    </a>
+                               <a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-large"></a>
+                             <ul class="brand-logo left">
+                                <li><a href="#" data-target="mobile-demo" class="sidenav-trigger show-on-large"><i
+                            class="material-icons">menu</i></a></li>
+                                <li><a class="logo" href="/">GETDROP</a></li>
+                        </ul>
+                </div>
+                <ul class="sidenav themefont" id="mobile-demo">
+                     {{{sidenavUserimage user }}}
+                    <li><a href="/" class="">HOME</a></li>
+                    <li><a href="/airdrops">AIRDROPS</a></li>
+                    <li><a href="#news">NEWS</a></li>
+                    <li><a href="/dashboard">DASHBOARD</a></li>
+                    <li>
+                        <div class="divider"></div>
+                    </li>
+
+                    {{#if user}}
+                    <li><a href="/auth/logout" class="btn waves-effect themebutton blue dark">logout</a></li>
+                    {{else}}
+                    <li><a href="#" class="btn themebutton themecolor3 waves-effect">Create An Account</a></li>
+                    <li>
+                        <p class="center-align grey-text lighten-2">Already Got An Account?</p>
+                    </li>
+                    <li><a href="/login" class="btn waves-effect themebutton blue dark">login</a></li>
+                    {{/if}}
+                          <div class="row">
+                     <ul class="sidenavsocials">
+<div class="col s4 l4"><li><a href="https://www.discord.com"><i class="fab fa-discord"></i></a></li></div>
+ <div class="col s4 l4">  <li><a href="#"><i class="fab fa-github"></i></a></li></div>
+ <div class="col s4 l4"> <li><a href="#"><i class="fab fa-twitter"></i></a></li></div>
+        </ul></div></div>
+        </nav>

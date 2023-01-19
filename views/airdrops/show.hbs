@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col s12 m8">
+        <h3>{{airdrops.title}}
+            <small> {{{editIcon airdrops.user user airdrops._id false}}}</small>
+        </h3>
+        <div class="card story">
+            <div class="card-content">
+                <span class="card-title">{{formatDate date 'MMMM Do YYYY'}}</span>
+                {{{airdrops.body}}}
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m4">
+        <div class="card center-align">
+            <div class="card-content">
+                <span class="card-title">{{airdrops.user.displayName}}</span>
+                <img src="{{airdrops.user.image}}" alt="" class="circle reponsive-img img-small">
+            </div>
+            <div class="card-action">
+                <a href="/airdrops/user/{{airdrops.user._id}}">More Info About {{airdrops.title}} From
+                    {{airdrops.user.firstname}}</a>
+            </div>
+        </div>
+    </div>
+</div>

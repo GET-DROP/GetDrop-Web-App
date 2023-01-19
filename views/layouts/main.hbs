@@ -1,0 +1,50 @@
+<html lang="en">
+
+<head>
+    <link rel="icon" href="GetdropLogo2.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Getdrop</title>
+</head>
+
+<body>
+    {{> _header2 }}
+    {{> _add_btn }}
+    <div class="container">
+        {{{body}}}</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.20.0/ckeditor.js"
+        integrity="sha512-BcYkQlDTKkWL0Unn6RhsIyd2TMm3CcaPf0Aw1vsV28Dj4tpodobCPiriytfnnndBmiqnbpi2EelwYHHATr04Kg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+         //init sidenav
+        M.Sidenav.init(document.querySelector('.sidenav'));
+        let side = document.querySelector('.sidenav')
+        //init carousel slider
+        let option = { fullWidth: true, indicators: true, };
+        let slider = M.Carousel.init(document.querySelector('.carousel'), option);
+        //nav bar motion
+        let header = document.querySelector('.header');
+        window.addEventListener('scroll', function () {
+            header.classList.toggle("sticky", window.scrollY > 0)
+        })
+
+        M.FormSelect.init(document.querySelector('#status'))
+
+        CKEDITOR.replace('body', {
+            plugins: 'wysiwygarea, toolbar, basicstyles, link'
+        })
+    </script>
+
+</body>
+
+</html>

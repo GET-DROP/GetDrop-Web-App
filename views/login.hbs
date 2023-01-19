@@ -1,0 +1,33 @@
+ <div class="section"><h1 class="getdrop"> GETDROP<i class="material-icons medium themecolor2">add_location</i></h1></div>
+<div class="section">
+    <p class="lead">Login and find latest and genuine airdrops from trusted sources through safe methods.</p>
+</div>
+<div class="divider"></div><div class="section">
+    {{>_chip_errors}}
+    <form action="/login" method="POST">
+    <div class="row">
+            {{!-- <i class="col s2 material-icons small">email</i> --}}
+              <div class="input-field col s12">
+                
+           <input type="text" id="autocomplete-input" name="email"  class="autocomplete" >{{!--value={{{typeof username !='undefined'? username:""}}} --}}
+         <label for="autocomplete-input">Email</label>
+         </div></div>
+          <div class="row">
+             {{!-- <i class="col s2 material-icons small">lock</i> --}}
+              <div class="input-field col s12">
+           <input type="password" id="autocomplete-input" name="password"  class="autocomplete" >{{!--value={{{typeof username !='undefined'? username:""}}} --}}
+           <label for="autocomplete-input">password</label>
+              </div>
+              </div><a href="#" class="left login_smalltext">Forgot password?</a>
+              <div class="section ">
+               <button type="submit" class="btn blue darken-2 col s12 login_button">LOGIN</button>
+              </div>
+              </form>
+            
+<div class="section">
+    <a href="/auth/google" class="btn red darken-1">
+        <i class="fab fa-google left"></i> Log in With Google
+    </a>
+</div>  <div class="divider"></div>
+            <div class="section">    <p>No account? </p><a href="/signup"> Create an account</a></div>
+              

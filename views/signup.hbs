@@ -1,0 +1,97 @@
+<html lang="en">
+
+  <head>
+    <link rel="icon" href="GetdropLogo2.png" type="image/x-icon" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+    <title>Getdrop Sign-up</title>
+  </head>
+
+<div class="row">
+    <div class="container">
+    <div class="col s12 m6 l6">
+        <h3 class=" getdrop left-align">GETDROP</h3>
+        <h5 class="left-align">Create your GetDrop Account</h5>
+        <span>
+          {{#if errors}}
+          {{#each errors}}
+           <div class="chip">{{msg}}
+        <i class="close material-icons">close</i>
+        </div>{{/each}}
+        {{else}} 
+        {{/if}}
+        </span>
+        <form action="/signup" method="POST">
+              
+           <!--   <i class="col s1 material-icons small">person</i>-->
+              <div class="input-field col s12">
+           <input type="text" id="autocomplete-input" name="username"  class="autocomplete" >{{!--value={{{typeof username !='undefined'? username:""}}} --}}
+          <label for="autocomplete-input">Username</label></div>
+
+          
+           <!-- <i class="col s1 material-icons small">mail</i>-->
+              <div class="input-field col s12">
+           <input type="text" id="autocomplete-input" name="email"  class="autocomplete" >{{!--value={{{typeof username !='undefined'? username:""}}} --}}
+         <label for="autocomplete-input">Email</label>
+         </div>
+          <div class="row">
+            
+          
+              <div class="input-field col s12 m6 l6">
+           <input type="password" id="autocomplete-input" name="password"  class="autocomplete" >{{!--value={{{typeof username !='undefined'? username:""}}} --}}
+           <label for="autocomplete-input">password</label>
+              </div>
+         
+              <div class="input-field col s12 m6 l6">
+           <input type="password" id="autocomplete-input" name="password2"  class="autocomplete" >{{!--value={{{typeof username !='undefined'? username:""}}} --}}
+          <label for="autocomplete-input">Confirm password</label></div>
+              </div>
+          <div class="row">
+            <div class="col s6">
+                <button type="submit" class="waves-effect waves-light btn blue darken-2 registerbutton">Proceed</button>
+            </div>
+              <div class="col s6 ">
+                <a href="/login" class="waves-effect waves-light blue-text darken-2 ">Login instead</a>
+            </div>
+
+          </div>
+          
+        </form>
+    </div>
+    <div class="logocolumn col s12 m6 l6">
+        <div class="center-align hide-on-small"><img src="/images/GetdropLogo3.png" class="registerlogo" alt="img"></div>
+        <p class="center-align"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, voluptates?</p>
+      </div></div>
+
+    </div>
+  </div>
+</div>
+<script>
+ document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.autocomplete');
+    var instances = M.Autocomplete.init(elems, options);
+  });
+
+    $('.chips').material_chip();
+  // Or with jQuery
+//
+ // $(document).ready(function(){
+  //  $('input.autocomplete').autocomplete({
+   //   data: {
+   //     "Apple": null,
+    //    "Microsoft": null,
+    //    "Google": 'https://placehold.it/250x250'
+  //    }, 
+  //  })});
+    </script>
+     </body>
+
+</html>
