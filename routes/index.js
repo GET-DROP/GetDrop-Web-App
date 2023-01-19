@@ -26,9 +26,43 @@ router.get("/login", ensureGuest, (req, res) => {
 //        })(req,res,next);
 router.post('/login',ensureGuest, async (req,res)=>{
   const user = await User2.findOne({ email:req.body.email }).lean();
-  res.render('comingsoon',{
-    user, name:user.username, layout: false
-  })
+  const emailfield = req.body.email;
+  const password = req.body.password;
+  console.log(password, emailfield)
+ try{ if(typeof password === null){
+  res.render('login',{
+    error: 'invalid login',
+    error2:'Ensure email and password are correct',
+    layout: 'login'})
+  } 
+  if(emailfield  <= 0 || '' ){
+    res.render('login',{
+      error: 'invalid login',
+      error2:'Ensure email and password are correct',
+      layout: 'login'
+    })
+  }
+  if(password <= 0 || '' ){
+    res.render('login',{
+      error: 'invalid login',
+      error2:'Ensure email and password are correct',
+      layout: 'login'
+    })
+  }
+  if(req.body.email && user.username && req.body.password && user === null){
+    res.render('login',{
+      error: 'invalid login',
+      error2:'Ensure email and password are correct',
+      layout: 'login'})
+  } 
+  if(user){
+    res.render('comingsoon',{
+      user, name:user.username, layout: false})
+  }
+ } catch (err){
+   console.error(err)
+ }
+  
 })
 // })
 

@@ -6,13 +6,19 @@
         {{/if}}
 
 {{#if error_msg}}
-  <div class="chip"> {{error_msg}}
+  <div class="chip "> {{error_msg}}
         <i class="close material-icons">close</i>
         </div>{{else}}
         {{/if}}
 
       {{#if error}}
-  <div class="chip"> {{error}}
+  <div class="chip red white-text"> {{error}}
+        <i class="close material-icons">close</i>
+        </div>{{else}}
+        {{/if}}
+
+            {{#if error2}}
+  <div class="chip red white-text"> {{error2}}
         <i class="close material-icons">close</i>
         </div>{{else}}
         {{/if}}
