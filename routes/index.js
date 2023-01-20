@@ -26,30 +26,30 @@ router.get("/login", ensureGuest, (req, res) => {
 //        })(req,res,next);
 router.post("/login", ensureGuest, async (req, res) => {
   const user = await User2.findOne({ email: req.body.email }).lean();
-  const{ password ,emailfield } = req.body;
+  const{ password , emailfield } = req.body;
   let error=[];
   let note = [];
   try {
     if ( !password  ) {
-      error.push({ msg: "Please fill in correct password" });}
+      error.push({ msg: "Please TYPE in a correct password" });}
       
-    if ( !emailfield ) {
-      error.push({ msg: "Please fill in correct email" });
-    }
+    // if (!//emailfield) {
+    //  //error.push({ msg: "Please TYPE in correct email" });
+    // }
     if(!user){
       error.push({msg:"Please Create An Account First"})  
     }
-    if(error.length>0){
+   if(error.length > 0){
       note.push({msg:"Login with google to see full profile"})
          res.render('login', {error,note,layout:'login'})
-      
     } 
-    else {
+    else { 
       res.render("comingsoon", {
         user,
         name: user.username,
-        layout: false,
-      })}} catch (err) {
+        layout: false,})}
+  
+      } catch (err) {
     console.error(err);
   }
 })
