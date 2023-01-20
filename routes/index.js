@@ -36,20 +36,16 @@ router.post("/login", ensureGuest, async (req, res) => {
     }
     if(error.length>0){
          res.render('login', {error,layout:'login'})
-    }
-    if(user) {
+      
+    } else {
       res.render("comingsoon", {
         user,
         name: user.username,
         layout: false,
-      });
-    } else{
-      res.render('error/500')
-    }
-  } catch (err) {
+      })}} catch (err) {
     console.error(err);
   }
-});
+})
 // })
 
 router.get("/signup", ensureGuest, (req, res) => {
