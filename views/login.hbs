@@ -8,6 +8,15 @@
            <div class="chip white-text red">{{msg}}
         <i class="close material-icons">close</i>
         </div>{{/each}}
+            {{#if note}}
+            {{#each note}}
+           <div class="chip white-text blue">{{msg}}
+        <i class="close material-icons">close</i>
+        </div>{{/each}}
+          
+        {{else}} 
+        {{/if}}
+
         {{else}} 
         {{/if}}
     <form action="/login" method="POST">

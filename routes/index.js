@@ -28,16 +28,23 @@ router.post("/login", ensureGuest, async (req, res) => {
   const user = await User2.findOne({ email: req.body.email }).lean();
   const{ password ,emailfield } = req.body;
   let error=[];
+  let note = [];
   try {
     if ( !password  ) {
-      error.push({ msg: "Please fill in all password" });}
+      error.push({ msg: "Please fill in correct password" });}
+      
     if ( !emailfield ) {
-      error.push({ msg: "Please fill in all email" });
+      error.push({ msg: "Please fill in correct email" });
+    }
+    if(!user){
+      error.push({msg:"Please Create An Account First"})  
     }
     if(error.length>0){
-         res.render('login', {error,layout:'login'})
+      note.push({msg:"Login with google to see full profile"})
+         res.render('login', {error,note,layout:'login'})
       
-    } else {
+    } 
+    else {
       res.render("comingsoon", {
         user,
         name: user.username,
@@ -68,7 +75,7 @@ router.post("/signup", (req, res) => {
   //check passwords match
   if (password != password2) {
     errors.push({
-      msg: "Passwords do not match, you thought it was just for show eh?",
+      msg: "Passwords do not match",
     });
   }
   //check passwords lengh
